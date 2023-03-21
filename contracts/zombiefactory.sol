@@ -1,4 +1,5 @@
-pragma solidity ^0.4.25;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
 
 import "./ownable.sol";
 import "./safemath.sol";
@@ -42,7 +43,7 @@ contract ZombieFactory is Ownable {
   }
 
   function createRandomZombie(string _name) public {
-    require(ownerZombieCount[msg.sender] == 0);
+    require(ownerZombieCount[msg.sender] < 6);
     uint randDna = _generateRandomDna(_name);
     randDna = randDna - randDna % 100;
     _createZombie(_name, randDna);
