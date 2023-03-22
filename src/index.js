@@ -4,13 +4,12 @@ import ReactDOM from 'react-dom/client';
 import './lib/web3.min.js'
 import './lib/styles.scss';
 
-import {ETHEREUM_NETWORK, ZOMBIE_FEEDING_CONTRACT_ADDRESS, ZOMBIE_OWNERSHIP_CONTRACT_ADDRESS} from "./constants";
+import {ETHEREUM_NETWORK, ZOMBIE_OWNERSHIP_CONTRACT_ADDRESS} from "./constants";
 import {ABI} from "./lib/abi";
 import Web3 from "web3";
 
 function App() {
     let [ownership, setOwnership] = useState(null)
-    let [feeding, setFeeding] = useState(null)
     let [userAccount, setUserAccount] = useState('')
     let [zombies, setZombies] = useState([])
     const [status, setStatus] = useState('')
@@ -30,8 +29,6 @@ function App() {
                     const web3 = new Web3(ETHEREUM_NETWORK);
                     window.web3 = web3;
                     const ownership = new web3.eth.Contract(ABI, ZOMBIE_OWNERSHIP_CONTRACT_ADDRESS);
-                    const feeding = new web3.eth.Contract(ABI, ZOMBIE_FEEDING_CONTRACT_ADDRESS);
-                    setFeeding(feeding);
                     setOwnership(ownership);
 
                 } catch (error) {
@@ -112,16 +109,6 @@ function App() {
         loadZombies();
     }
 
-    const deleteZombie = async (zombieID) => {
-        console.log('deleteZombie', zombieID)
-        // deleteZombie
-        const gas = await ownership.methods.deleteZombie(zombieID).estimateGas({from: userAccount});
-        console.log('gas', gas)
-        const receipt = await ownership.methods.deleteZombie(zombieID).send({from: userAccount, gas});
-        console.log('receipt', receipt)
-        setStatus('Zombie Deleted Successfully')
-        loadZombies();
-    }
 
     return (<div key='appID'>
             <div className="app-bar">
@@ -137,7 +124,7 @@ function App() {
             <div className='container'>
                 <div className='status'>{status}</div>
                 <div className='zombie-wrapper'>
-                    {zombies.map((zombie) => {
+                    {zombies.length && zombies.map((zombie) => {
                         // Style Card Based on Level
                         return (<div key={zombie.zombieId} className={'card level-' + zombie.level}>
                             <img src={`https://robohash.org/${zombie.zombieId}?set=set1`} alt='zombie'/>
@@ -160,8 +147,13 @@ function App() {
                             </div>
                         </div>)
                     })}
+                    {!zombies.length && <div className='no-zombies'>Create new Zombie to see Card</div>}
                 </div>
             </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='footer'>
+                <path fill="#9c27b0" fill-opacity="1"
+                      d="M0,64L36.9,224L73.8,128L110.8,64L147.7,96L184.6,256L221.5,128L258.5,224L295.4,192L332.3,160L369.2,64L406.2,192L443.1,96L480,64L516.9,32L553.8,128L590.8,64L627.7,288L664.6,32L701.5,192L738.5,288L775.4,96L812.3,64L849.2,288L886.2,256L923.1,256L960,128L996.9,0L1033.8,0L1070.8,192L1107.7,160L1144.6,192L1181.5,64L1218.5,96L1255.4,288L1292.3,64L1329.2,256L1366.2,256L1403.1,128L1440,128L1440,320L1403.1,320L1366.2,320L1329.2,320L1292.3,320L1255.4,320L1218.5,320L1181.5,320L1144.6,320L1107.7,320L1070.8,320L1033.8,320L996.9,320L960,320L923.1,320L886.2,320L849.2,320L812.3,320L775.4,320L738.5,320L701.5,320L664.6,320L627.7,320L590.8,320L553.8,320L516.9,320L480,320L443.1,320L406.2,320L369.2,320L332.3,320L295.4,320L258.5,320L221.5,320L184.6,320L147.7,320L110.8,320L73.8,320L36.9,320L0,320Z"></path>
+            </svg>
         </div>
 
     );

@@ -2,14 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: fantasy, sans-serif;
-  background-color: #f5f5f5;
+  //background-color: #f5f5f5;
+  background-color: #ffffff;
+  opacity: 1;
+  background-image:  radial-gradient(#9c27b0 2px, transparent 2px), radial-gradient(#9c27b0 2px, #ffffff 2px);
+  background-size: 80px 80px;
+  background-position: 0 0,40px 40px;
 }
+
 
 .zombie-wrapper {
   display: flex;
   padding: 10px;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -156,13 +163,18 @@ body {
 }
 
 .level-2 {
-  border: 2px solid  #4caf50;
+  border: 2px solid #4caf50;
 }
 
 .level-3 {
-  border: 3px solid  #ff9800;
+  border: 3px solid #ff9800;
 }
 
 .level-4 {
-  border: 4px solid  #f44336;
+  border: 4px solid #f44336;
+}
+
+.footer {
+  width: 100%;
+  height: 100%;
 }
