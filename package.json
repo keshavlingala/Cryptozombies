@@ -21,8 +21,10 @@
     "openzeppelin-solidity": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0",
     "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "^1.9.0"
+    "web3": "^1.9.0",
+    "web3-react": "^5.0.5"
   },
   "devDependencies": {
     "node-sass": "^8.0.0",
