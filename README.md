@@ -1,5 +1,6 @@
 # Midterm project: CryptoZombies DApp
 
+## Team Token
 ## Team Members
 
 * Keshav Lingala (885187559)
