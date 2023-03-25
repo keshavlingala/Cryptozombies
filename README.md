@@ -1,12 +1,13 @@
 # Midterm project: CryptoZombies DApp
 
 ## Team Token
+
 ## Team Members
 
-* Keshav Lingala (885187559)
-* Saurabh Kudeti ( 885332130 )
-* Sri Vaishnavi Rudravallambi ( 885237289 )
-* Priya Keshri ( 885191452 )
+* Keshav Lingala (885187559) ( keshavlingala@csu.fullerton.edu )
+* Saurabh Kudeti ( 885332130 ) ( kudeti1999@csu.fullerton.edu )
+* Sri Vaishnavi Rudravallambi ( 885237289 ) (srivaishnavi@csu.fullerton.edu )
+* Priya Keshri ( 885191452 ) ( priyakeshri@csu.fullerton.edu )
 
 ## Project Description
 
@@ -24,7 +25,7 @@ zombies. The DApp is deployed to Ganache and can be accessed at http://localhost
 4. Compile the contracts using `truffle compile`
 5. Migrate the contracts using `truffle migrate`
 6. Copy ZombieOwnership Deployed contract address and paste it in at src/constants.js
-7. Install Metamask and connect to Ganache network using Ganache Network Details 
+7. Install Metamask and connect to Ganache network using Ganache Network Details
 
         Network Name: Ganache
         New RPC URL: http://localhost:7545 
