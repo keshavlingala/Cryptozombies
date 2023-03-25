@@ -30,3 +30,4 @@ zombies. The DApp is deployed to Ganache and can be accessed at http://localhost
 13. Used CryptoKitties API to show Kitties 
 14. Can copy address of kitty owner into clipboard 
 15. Pagination for Crypto kitties
+16. Used Latest Metamask Web3 API to connect to Ganache
