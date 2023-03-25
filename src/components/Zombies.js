@@ -173,7 +173,7 @@ export const Zombies = () => {
                 {zombies.length && zombies.map((zombie) => {
                     // Style Card Based on Level
                     return (<div key={zombie.zombieId} className={'card level-' + Math.min(4, zombie.level)}>
-                        <img src={`https://robohash.org/${zombie.zombieId}?set=set1`} alt='zombie'/>
+                        <img src={`https://robohash.org/${zombie.zombieId+zombie.name}?set=set1`} alt='zombie'/>
                         <h2>Name: {zombie.name}</h2>
                         <h3>DNA: {zombie.dna}</h3>
                         <h4>Level: <b>{zombie.level}</b></h4>
