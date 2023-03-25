@@ -81,6 +81,11 @@ export const Zombies = () => {
             setStatus('Please enter a name for your zombie')
             return;
         }
+        // Can only create 6 zombies per userAccount
+        if (zombies.length >= 6) {
+            setStatus('You can only create 6 zombies')
+            return;
+        }
         const gas = await ownership.methods.createRandomZombie(name).estimateGas({from: userAccount});
         console.log('gas', gas)
         const receipt = await ownership.methods.createRandomZombie(name).send({from: userAccount, gas});
@@ -109,9 +114,9 @@ export const Zombies = () => {
         loadZombies();
     }
 
-    const updateZombieName = async (zombieId,zombieLevel) => {
+    const updateZombieName = async (zombieId, zombieLevel) => {
         // Only works for zombies with level 2 or higher
-        if(zombieLevel < 2){
+        if (zombieLevel < 2) {
             // Smooth Scroll to top
             window.scrollTo(0, 0);
             setStatus('Zombie level should be 2 or higher to update name')
@@ -131,9 +136,9 @@ export const Zombies = () => {
         loadZombies();
     }
 
-    const updateZombieDNA = async (zombieId,zombieLevel) => {
+    const updateZombieDNA = async (zombieId, zombieLevel) => {
         // Only works for zombies with level 20 or higher
-        if(zombieLevel < 20){
+        if (zombieLevel < 20) {
             window.scrollTo(0, 0);
             setStatus('Zombie level should be 20 or higher to update DNA')
             return;
@@ -153,14 +158,16 @@ export const Zombies = () => {
     }
 
     return (
-        <div className='container'>
-            <div className='status'>{status}</div>
-            <div>
-                <input ref={zombieName} className='zombie-input' type="text" name='zombieName'
-                       placeholder='Zombie Name'/>
-                <button onClick={() => createZombie()} id='createZombieButton' className='create-zombie-btn'>Create
-                    Zombie
-                </button>
+        <div>
+            <div className="container">
+                <div className='status'>{status}</div>
+                <div>
+                    <input ref={zombieName} className='zombie-input' type="text" name='zombieName'
+                           placeholder='Zombie Name'/>
+                    <button onClick={() => createZombie()} id='createZombieButton' className='create-zombie-btn'>Create
+                        Zombie
+                    </button>
+                </div>
             </div>
             <div className='zombie-wrapper'>
                 {zombies.length && zombies.map((zombie) => {

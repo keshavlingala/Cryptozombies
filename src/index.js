@@ -15,7 +15,7 @@ function App() {
             <BrowserRouter basename={'/'}>
                 <div className="app-bar">
                     <h1><Link to="/">My Zombies</Link></h1>
-                    <h1><Link to="/kitties" className='kitties-link'>Kitties</Link></h1>
+                    <h1><Link to="/kitties" className='kitties-link'>Browse Kitties</Link></h1>
                 </div>
                 <Routes>
                     <Route path="/" element={<Zombies/>}/>

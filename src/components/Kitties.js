@@ -4,6 +4,7 @@ import {CRYPTO_KITTIES} from "../constants";
 export const Kitties = () => {
     const [kitties, setKitties] = useState([]);
     const [status, setStatus] = useState('');
+    const [offset, setOffset] = useState(0);
 
     // Clear the status after 3 seconds
     useEffect(() => {
@@ -14,12 +15,14 @@ export const Kitties = () => {
     }, [status])
 
     useEffect(() => {
-        fetch(CRYPTO_KITTIES)
+        console.log('offset', offset)
+        fetch(CRYPTO_KITTIES + '&offset=' + offset)
             .then(res => res.json())
             .then(data => {
+                console.log('new kitties', data.kitties);
                 setKitties(data.kitties)
             });
-    }, [])
+    }, [offset])
 
     function copyToClipboard(address) {
         navigator.clipboard.writeText(address).then(
@@ -46,6 +49,17 @@ export const Kitties = () => {
                     )
                 )}
                 {kitties.length === 0 && <div className='loading'>Loading...</div>}
+            </div>
+            <div className="container">
+                <div className='btn-wrapper btn-center'>
+                    <button className='btn btn-prev' onClick={() => setOffset(offset - 8)}
+                            disabled={offset === 0}>Previous
+                    </button>
+                    <span className='page-no'>page: {offset / 8 + 1}</span>
+                    <button className='btn btn-next' onClick={() => setOffset(offset + 8)}
+                            disabled={kitties.length < 8}>Next
+                    </button>
+                </div>
             </div>
         </div>
     )
