@@ -2,10 +2,10 @@
 
 ## Team Members
 
-* Keshav Lingala
-* Saurabh Kudeti
-* Sri Vaishnavi Rudravallambi
-* Priya Keshri
+* Keshav Lingala (885187559)
+* Saurabh Kudeti ( 885332130 )
+* Sri Vaishnavi Rudravallambi ( 885237289 )
+* Priya Keshri ( 885191452 )
 
 ## Project Description
 
