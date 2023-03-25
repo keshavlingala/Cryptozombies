@@ -6,7 +6,7 @@
 
 * Keshav Lingala (885187559) ( keshavlingala@csu.fullerton.edu )
 * Saurabh Kudeti ( 885332130 ) ( kudeti1999@csu.fullerton.edu )
-* Sri Vaishnavi Rudravallambi ( 885237289 ) (srivaishnavi@csu.fullerton.edu )
+* Sri Vaishnavi Rudravallambi ( 885237289 ) ( srivaishnavi@csu.fullerton.edu )
 * Priya Keshri ( 885191452 ) ( priyakeshri@csu.fullerton.edu )
 
 ## Project Description
